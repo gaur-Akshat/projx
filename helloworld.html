@@ -54,9 +54,9 @@ document.getElementById('btn').onclick = async () => {
   
   try {
     await audio.play();
-    console.log("Audio playback started successfully ✅");
+    console.log("Audio playback started successfully");
   } catch (err) {
-    console.warn("⚠️ Autoplay blocked. Click again to enable sound.", err);
+    console.warn("Autoplay blocked. Click again to enable sound.", err);
     alert("Please click OK or the button again to enable sound.");
     return;
   }
@@ -66,7 +66,7 @@ document.getElementById('btn').onclick = async () => {
 
   // 3️⃣ Add heading
   const h = document.createElement('h1');
-  h.textContent = 'tera toh padh ke bhi kuch nahi hone wala 🤙😆';
+  h.textContent = 'lol lmao XD 😆🤙';
   document.body.appendChild(h);
 
   // 4️⃣ Add GIFs
@@ -92,4 +92,5 @@ document.getElementById('btn').onclick = async () => {
 };
 </script>
 </body>
+
 </html>
