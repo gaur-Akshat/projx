@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NOTICE!</title>
+<style>
+body {
+  margin: 0;
+  overflow: hidden;
+  background: white;
+}
+h1 {
+  color: #fff;
+  font-size: 4em;
+  font-family: sans-serif;
+  z-index: 10;
+  text-align: center;
+  width: 100%;
+}
+.gif {
+  position: absolute;
+  width: 200px;
+  z-index: 5;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+@keyframes move1 {
+  0%{top:40%;left:45%}
+  25%{top:30%;left:65%}
+  50%{top:60%;left:55%}
+  75%{top:70%;left:35%}
+  100%{top:40%;left:45%}
+}
+@keyframes move2 {
+  0%{top:60%;left:55%}
+  25%{top:40%;left:25%}
+  50%{top:50%;left:65%}
+  75%{top:30%;left:40%}
+  100%{top:60%;left:55%}
+}
+</style>
+</head>
+<body>
+<input id="btn" type="button" value="Click karo"
+style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+width:100px;height:40px;font-size:18px;">
+
+<script>
+document.getElementById('btn').onclick = async () => {
+  // 1️⃣ Create the audio first and try to play it right away
+  const audio = new Audio('dhoom_machale_ringtone.mp3');
+  audio.loop = true;
+  
+  try {
+    await audio.play();
+    console.log("Audio playback started successfully ✅");
+  } catch (err) {
+    console.warn("⚠️ Autoplay blocked. Click again to enable sound.", err);
+    alert("Please click OK or the button again to enable sound.");
+    return;
+  }
+
+  // 2️⃣ Remove button after successful play
+  document.getElementById('btn').remove();
+
+  // 3️⃣ Add heading
+  const h = document.createElement('h1');
+  h.textContent = 'tera toh padh ke bhi kuch nahi hone wala 🤙😆';
+  document.body.appendChild(h);
+
+  // 4️⃣ Add GIFs
+  const g = document.createElement('img');
+  g.src = 'small-dancing-white-cat-dance-funny.gif';
+  g.className = 'gif';
+  g.style.animation = 'move1 10s infinite linear';
+  document.body.appendChild(g);
+
+  const g2 = document.createElement('img');
+  g2.src = 'cat-meme-funny.gif';
+  g2.className = 'gif';
+  g2.style.animation = 'move2 12s infinite linear';
+  document.body.appendChild(g2);
+
+  // 5️⃣ Random background color
+  const colors = ['#FF5733','#33FF57','#3357FF','#F033FF','#FF33A1','#33FFF5'];
+  const changeColor = () => {
+    document.body.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+  };
+  changeColor(); // instant first change
+  setInterval(changeColor, 700);
+};
+</script>
+</body>
+</html>
